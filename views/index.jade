@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .content
+    pre#editor.viewer
+
+
+  script(src="javascripts/src-min-noconflict/ace.js")
+  script(src="/socket.io/socket.io.js")
+  script(src="javascripts/viewer.js")
+  script.
+    //ACE editor handling
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.getSession().setMode("ace/mode/json");
+
+    //Socket IO handling
+    var socket = io();
+
+    //update editor with code on code changes from the presenter
+    socket.on('code update', function(code) {
+      editor.setValue(code);
+      editor.clearSelection();
+    });
+
+    //Toggle Selectable event
+    socket.on('select update', function(selectable) {
+      if(selectable) {
+        Viewer.ToggleSelectable(true);
+        //prevents user from editing
+        //editor.setReadOnly(true);
+      } else {
+        Viewer.ToggleSelectable(false);
+      }
+    });

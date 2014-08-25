@@ -1,0 +1,37 @@
+{
+  "name": "coding-live",
+  "version": "0.0.0",
+  "description": "A Teaching application to show and share code",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raghunat/coding-live.git"
+  },
+  "keywords": [
+    "Code",
+    "Editor",
+    "Screen",
+    "Share",
+    "Code",
+    "Share"
+  ],
+  "author": "Stephen Raghunath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raghunat/coding-live/issues"
+  },
+  "homepage": "https://github.com/raghunat/coding-live",
+  "dependencies": {
+    "socket.io": "~1.0.6",
+    "express": "~4.2.0",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "jade": "~1.3.0"
+  }
+}

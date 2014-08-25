@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .content
+    pre#editor
+  button.toggleSelectButton(onclick="EmitSelectable()") Toggle Select
+
+
+  script(src="javascripts/src-min-noconflict/ace.js")
+  script(src="/socket.io/socket.io.js")
+  script(src="javascripts/presenter.js")
+  script.
+    //ACE editor handling
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.getSession().setMode("ace/mode/json");
+    //Socket IO handling
+    var socket = io();
+    editor.getSession().on('change', function(e) {
+      socket.emit('code change', editor.getValue());
+    });
+
+    function EmitSelectable() {
+      var result = Presenter.ToggleSelectable();
+      socket.emit('toggle select', result);
+    }
