@@ -12,7 +12,7 @@ block content
     //ACE editor handling
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
-    editor.getSession().setMode("ace/mode/json");
+    editor.getSession().setMode("ace/mode/#{mode}");
 
     //Socket IO handling
     var socket = io();
