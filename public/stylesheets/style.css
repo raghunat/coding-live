@@ -9,11 +9,10 @@ a {
     left: 0;
     right: 0;
     width:100%;
-    pointer-events: none;
 }
 
 .content {
-  overflow:auto;
+  /* overflow:auto; */
 }
 
 .toggleSelectButton {
