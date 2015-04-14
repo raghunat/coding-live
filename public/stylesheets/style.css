@@ -3,6 +3,7 @@ a {
 }
 
 #editor {
+    min-height:100px;
     margin: 0;
     top: 0;
     bottom: 0;
