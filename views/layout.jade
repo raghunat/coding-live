@@ -3,5 +3,20 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script.
+      function disableselect(e) {
+          return false
+      }
+
+      function reEnable() {
+          return true
+      }
+
+      document.onselectstart = new Function ("return false")
+
+      if (window.sidebar) {
+          document.onmousedown = disableselect
+          document.onClick = reEnable
+      }
   body(oncopy="return false" oncut="return false" onpaste="return false")
     block content
