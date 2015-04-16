@@ -21,11 +21,11 @@ block content
 
     //update editor with code on code changes from the presenter
     socket.on('code update', function(code) {
-      var pos = editor.getScrollTop();
+      var pos = editor.session.getScrollTop();
       editor.setValue(code);
       editor.clearSelection();
       try {
-        editor.setScrollTop(pos);
+        editor.session.setScrollTop(pos);
       } catch (e) {
         // shhh
       }
