@@ -20,9 +20,9 @@ block content
     var socket = io();
 
     //update editor with code on code changes from the presenter
-    socket.on('code update', function(code) {
+    socket.on('code update', function(res) {
       var pos = editor.session.getScrollTop();
-      editor.setValue(code);
+      editor.setValue(res.code);
       editor.clearSelection();
       try {
         editor.session.setScrollTop(pos);
